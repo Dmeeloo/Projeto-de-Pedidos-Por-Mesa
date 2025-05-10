@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Pedidos</title>
 </head>
+
 <body>
     <div class="headLine">
         <h2 class="head1">Mesas</h2>
         <h1 class="head2">Central Carnes Cerro Azul</h1>
         <h2 class="head3">Logo</h2>
     </div>
+    <div class="container">
+        <div class="mesas">
+            <section class="firstCollumn">
+                <h2 class="headmesa">Lista Mesas</h2>
+                <div class="listamesas">
+                    <ol class="listaordenadamesas contarMesa">
+                        <li>Mesa </li>
+                        <li>Mesa </li>
+                        <li>Mesa </li>
+                    </ol>
+                </div>
+                <button class="opcoes">Opções</button>
+                <p class="finalizarMesa">Finalizar mesa</p>
+            </section>
+        </div>
 
-    <div class="mesas">
-        <section>
-            <div> 
-                <h2>Lista Mesas</h2>
-                <ol>
-                    <li>Mesa 1</li>
-                    <li>Mesa 2</li>
-                    <li>Mesa 3</li>
-                </ol>
-            </div>
+        <div class="pedidosMesa secondCollumn">
+            <section class="opçõesMesa">
+                <div class="listaPedidos">
+                    <button class="add">Adicionar</button>
+                    <button class="rem">Remover</button>
+                    <button class="edit">Editar</button>
+                    <h2>Lista pedidos</h2>
+                    <ol class="listaordenadamesas esquerda">
+                        <li>Espeto Carne(R$8.00)</li>
+                        <li>Espeto Frango(R$7.00)</li>
+                        <li>Heineken(R$12.00)</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
 
-            <button>Opções</button>
-            <div>Finalizar mesa</div>
-        </section>
+        <div class="print">
+            <section>
+                <div class="pag">
+                    <h2>Valor Final</h2>
+                    <ol class="listaordenadamesas valorProduto">
+                        <li>R$8.00</li>
+                        <li>R$7.00</li>
+                        <li>R$12.00</li>
+                    </ol>
+                    <h2 class="fpag">Forma Pagamento</h2>
+                </div>
+            </section>
+        </div>
     </div>
-
-    <div class="pedidosMesa">
-        <section class="opçõesMesa">
-           <button class="add">Adicionar</button>
-           <button class="rem">Remover</button>
-           <button class="edit">Editar</button>
-        </section>
-           <div class="listaPedidos">
-            <h2>Lista pedidos</h2>
-            <ol class="pedidos">
-                <li>Espeto Carne(R$8.00)</li>
-                <li>Espeto Frango(R$7.00)</li>
-                <li>Heineken(R$12.00)</li>
-            </ol>
-           </div>
-    </div>
-    
-    <div class="print">
-        <section>
-            <div class="pag">
-                <h2>Valor Final</h2>
-                <ol>
-                    <li>R$8.00</li>
-                    <li>R$7.00</li>   
-                    <li>R$12.00</li>
-                </ol>
-            </div>
-        </section>
-    </div>
-
-    <div class="fPag">
-        <h2>Forma Pagamento</h2>
-    </div>
-
 </body>
+
 </html>
