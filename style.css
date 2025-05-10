@@ -1,22 +1,141 @@
-.headLine{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+.headLine {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid black;
 }
 
-.head1{
-    font-size: 30px ;
-}
-.head2{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.head1 {
+    font-size: 30px;
 }
 
-.head3{
-    font-size: 30px ;
+.head2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.mesas{
+.head3 {
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.mesas {
     text-align: left;
+    width: 20%;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+li {
+    font-size: 20px;
+    padding: 15px;
+}
+
+.finalizarMesa {
+    font-size: 25px ;
+}
+
+.firstCollumn {
+    padding: 5px;
+    border-right: 2px solid black;
+    text-align: center;
+    min-height: 820.6px;
+}
+
+.listaordenadamesas {
+    font-size: 20px;
+    padding: 0;
+}
+
+.contarMesa {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+.listamesas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.opcoes {
+    font-size: 20px;
+    text-decoration: none;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: 2px solid darkgray;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.opcoes:hover {
+    cursor: pointer;
+    background-color: darkgray;
+    color: white;
+    transform: scale(1.05);
+}
+
+.pedidosMesa {
+    text-align: center;
+}
+
+.secondCollumn {
+    padding: 5px;
+    border-right: 2px solid black;
+    width: 60%;
+    min-height: 820.6px;
+}
+
+.add,
+.rem,
+.edit {
+    display: none; 
+    font-size: 20px;
+    text-decoration: none;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: 2px solid darkgray;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.add:hover,
+.rem:hover,
+.edit:hover {
+    cursor: pointer;
+    background-color: darkgray;
+    color: white;
+    transform: scale(1.05);
+}
+
+.print {
+    width: 20%;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fpag {
+    font-size: 30px;;
+}
+
+.esquerda {
+    text-align: left;
+    padding-left: 50px;
+    list-style: circle;
+}
+
+.valorProduto {
+    list-style: none;
 }
