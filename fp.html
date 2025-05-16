@@ -57,7 +57,7 @@
                     <ol class="listaordenadamesas valorProduto">
                         <!-- Valores preenchidos dinamicamente -->
                     </ol>
-                    <h2 class="fpag">Forma Pagamento</h2>
+                    <button class="fpag" id="btnFormaPagamento">Forma de Pagamento</button>
                 </div>
             </section>
         </div>
@@ -105,6 +105,19 @@
             <div class="modal-actions">
                 <button id="btnSalvarMesaManual">Adicionar</button>
                 <button id="btnCancelarMesaManual">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalPagamento" class="modal-editar">
+        <div class="modal-content">
+            <h3>Escolha a forma de pagamento</h3>
+            <div class="modal-actions" style="flex-direction:column;gap:12px;">
+                <button class="pag-opcao" data-pag="Pix">Pix</button>
+                <button class="pag-opcao" data-pag="Cartão de Crédito">Cartão de Crédito</button>
+                <button class="pag-opcao" data-pag="Cartão de Débito">Cartão de Débito</button>
+                <button class="pag-opcao" data-pag="Dinheiro">Dinheiro</button>
+                <button id="btnCancelarPagamento" style="margin-top:10px;background:#888;">Cancelar</button>
             </div>
         </div>
     </div>
