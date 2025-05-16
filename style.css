@@ -1,141 +1,509 @@
-html {
+/* ---------------------------
+   RESET & BASE
+----------------------------*/
+body,
+h1,
+h2,
+h3,
+p,
+ol,
+li,
+button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: aliceblue;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+body {
+    background: #f7f7fa;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* ---------------------------
+   HEADER
+----------------------------*/
 .headLine {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid black;
+    align-items: center;
+    background: linear-gradient(90deg, #b71c1c 60%, #111 100%);
+    color: #fff;
+    padding: 24px 36px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    letter-spacing: 1px;
 }
 
-.head1 {
-    font-size: 30px;
+.head1,
+.head3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .head2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: 1px 2px 8px #0008;
 }
 
-.head3 {
-    font-size: 30px;
-}
+/* ---------------------------
+   LAYOUT
+----------------------------*/
 .container {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-.mesas {
-    text-align: left;
-    width: 20%;
-}
-
-h2 {
-    font-size: 45px;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
-li {
-    font-size: 20px;
-    padding: 15px;
+.mesas,
+.pedidosMesa,
+.print {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(183, 28, 28, 0.12), 0 1.5px 8px #000a;
+    padding: 28px 22px;
+    min-width: 280px;
+    flex: 1 1 320px;
+    margin: 10px;
+    transition: box-shadow 0.2s;
 }
 
-.finalizarMesa {
-    font-size: 25px ;
+.mesas:hover,
+.pedidosMesa:hover,
+.print:hover {
+    box-shadow: 0 8px 32px rgba(183, 28, 28, 0.22), 0 2px 12px #000c;
 }
 
-.firstCollumn {
-    padding: 5px;
-    border-right: 2px solid black;
-    text-align: center;
-    min-height: 820.6px;
+/* ---------------------------
+   LISTAS
+----------------------------*/
+.headmesa {
+    margin-bottom: 16px;
+    color: #ff5252;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .listaordenadamesas {
-    font-size: 20px;
+    margin: 16px 0 22px 22px;
+    font-size: 1.12em;
+}
+
+.listaordenadamesas li {
+    margin-bottom: 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #f7f7fa;
+    border-left: 4px solid #b71c1c;
+    transition: background 0.2s, border-color 0.2s;
+    box-shadow: 0 1px 4px #0004;
+}
+
+.listaordenadamesas li:hover {
+    background: #f7f7fa;
+    border-left: 4px solid #ff5252;
+}
+
+.listaordenadamesas.contarMesa li,
+.listaordenadamesas.valorProduto li {
+    cursor: pointer;
+}
+
+.listaordenadamesas.contarMesa li.selected {
+    background: #ffeaea;
+    border-left: 4px solid #b71c1c;
+    font-weight: bold;
+    color: #b71c1c;
+}
+
+/* ---------------------------
+   BOTÕES GERAIS
+----------------------------*/
+button {
+    background: linear-gradient(90deg, #b71c1c 70%, #111 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    margin: 0 8px 12px 0;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0005;
+    transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+    outline: none;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover,
+button:focus {
+    background: linear-gradient(90deg, #ff5252 70%, #222 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 16px #b71c1c55, 0 2px 8px #0008;
+}
+
+button:focus-visible {
+    outline: 2px solid #b71c1c;
+    outline-offset: 2px;
+}
+
+/* Botão fechar */
+button.fechar {
+    background: #fff;
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    margin-left: 12px;
+    padding: 10px 16px;
+    font-size: 1.2em;
+    transition: background 0.2s, color 0.2s;
+}
+
+button.fechar:hover {
+    background: #ff5252;
+    color: #fff;
+}
+
+/* Botões de opções */
+.botoesPedidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    animation: fadeIn 0.4s;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.botoesPedidos.fade-out {
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botão Restaurar Pedido */
+button.restaurar {
+    background: linear-gradient(90deg, #b71c1c 70%, #111 100%);
+    color: #fff;
+    margin-left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0005;
+    outline: none;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+button.restaurar.show {
+    opacity: 1;
+}
+
+button.restaurar:hover,
+button.restaurar:focus {
+    background: linear-gradient(90deg, #ff5252 70%, #222 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 16px #b71c1c55, 0 2px 8px #0008;
+}
+
+button.restaurar-mesa {
+    background: linear-gradient(90deg, #43a047 70%, #111 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0005;
+    margin: 10px 0 0 0;
+    border: none;
+    transition: background 0.2s;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+button.restaurar-mesa:hover,
+button.restaurar-mesa:focus {
+    background: linear-gradient(90deg, #66bb6a 70%, #222 100%);
+}
+
+button.restaurar-mesa.fade-out {
+    opacity: 0;
+}
+
+button.restaurar,
+button.restaurar-mesa {
+    transition: opacity 0.5s;
+}
+button.restaurar.fade-out,
+button.restaurar-mesa.fade-out {
+    opacity: 0;
+}
+
+/* ---------------------------
+   FINALIZAR MESA
+----------------------------*/
+.finalizarMesa {
+    background: #fff;
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    border-radius: 8px;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.finalizarMesa:hover {
+    background: #ff5252;
+    color: #fff;
+}
+
+/* ---------------------------
+   PAGAMENTO E VALORES
+----------------------------*/
+.pag {
+    background: #f7f7fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 14px;
+    box-shadow: 0 2px 8px #b71c1c33;
+}
+
+.valorProduto li {
+    color: #43a047;
+    font-weight: bold;
+    background: #f7f7fa;
+    border-left: 4px solid #43a047;
+}
+
+/* Separador visual antes do total */
+.separador-total {
+    list-style: none;
+    height: 8px;
+    border: none;
+    background: transparent;
+    margin: 0;
     padding: 0;
 }
 
-.contarMesa {
-    list-style: decimal;
-    padding-left: 20px;
+/* Total destacado em Valor Final */
+.valorProduto .total-final {
+    font-weight: bold;
+    color: #b71c1c !important;
+    border-top: 1px solid #ccc;
+    margin-top: 8px;
+    padding-top: 6px;
+    list-style: none;
 }
 
-.listamesas {
+/* Forma de pagamento */
+.fpag {
+    margin-top: 20px;
+    color: #ff5252;
+    font-size: 1.15em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ---------------------------
+MODAL (EDITAR/ADICIONAR)
+----------------------------*/
+.modal-editar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    color: #222;
+    border-radius: 12px;
+    padding: 28px 22px;
+    min-width: 280px;
+    box-shadow: 0 4px 24px #0005;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 30px;
+    gap: 14px;
+    align-items: stretch;
 }
 
-.opcoes {
-    font-size: 20px;
-    text-decoration: none;
-    background-color: aliceblue;
-    border-radius: 10px;
-    border: 2px solid darkgray;
-    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+.modal-content h3 {
+    margin-bottom: 8px;
+    color: #b71c1c;
 }
 
-.opcoes:hover {
+.modal-content select,
+.modal-content input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.modal-actions button {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
     cursor: pointer;
-    background-color: darkgray;
-    color: white;
-    transform: scale(1.05);
+    background: linear-gradient(90deg, #b71c1c 70%, #111 100%);
+    color: #fff;
+    transition: background 0.2s;
 }
 
-.pedidosMesa {
-    text-align: center;
+.modal-actions button#btnCancelarEdicao,
+.modal-actions button#btnCancelarAdicionar {
+    background: #888;
+    color: #fff;
 }
 
-.secondCollumn {
-    padding: 5px;
-    border-right: 2px solid black;
-    width: 60%;
-    min-height: 820.6px;
+.modal-actions button#btnExcluirPedido {
+    background: #b71c1c;
+    color: #fff;
 }
 
-.add,
-.rem,
-.edit {
-    display: none; 
-    font-size: 20px;
-    text-decoration: none;
-    background-color: aliceblue;
-    border-radius: 10px;
-    border: 2px solid darkgray;
-    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+.botoesPedidos {
+    display: none;
 }
 
-.add:hover,
-.rem:hover,
-.edit:hover {
-    cursor: pointer;
-    background-color: darkgray;
-    color: white;
-    transform: scale(1.05);
+.listaordenadamesas.contarMesa li:focus {
+    outline: none;
 }
 
-.print {
-    width: 20%;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
+/* ---------------------------
+   SCROLLBAR CUSTOM
+----------------------------*/
+::-webkit-scrollbar {
+    width: 8px;
+    background: #f7f7fa;
 }
 
-.fpag {
-    font-size: 30px;;
+::-webkit-scrollbar-thumb {
+    background: #b71c1c;
+    border-radius: 8px;
 }
 
-.esquerda {
-    text-align: left;
-    padding-left: 50px;
-    list-style: circle;
-}
-
-.valorProduto {
+.listaordenadamesas.contarMesa {
     list-style: none;
+    padding-left: 0;
+}
+
+/* ---------------------------
+   RESPONSIVIDADE
+----------------------------*/
+@media (max-width: 1200px) {
+    .container {
+        gap: 16px;
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 20px 0;
+    }
+
+    .mesas,
+    .pedidosMesa,
+    .print {
+        margin: 16px 0;
+        min-width: unset;
+        padding: 18px 8px;
+    }
+
+    .headLine {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 18px 10px;
+    }
+
+    .listaordenadamesas {
+        margin: 12px 0 16px 10px;
+        font-size: 1em;
+    }
+
+    .headmesa {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .headLine {
+        padding: 8px 2vw;
+        font-size: 0.93em;
+    }
+
+    .mesas,
+    .pedidosMesa,
+    .print {
+        padding: 8px 2vw;
+        border-radius: 8px;
+    }
+
+    .head2 {
+        font-size: 1em;
+    }
+
+    .head3 {
+        font-size: 0.95em;
+    }
+
+    button,
+    .finalizarMesa {
+        font-size: 0.95em;
+        padding: 8px 10px;
+    }
+
+    .listaordenadamesas li {
+        padding: 6px 8px;
+        font-size: 0.97em;
+    }
+
+    .pag {
+        padding: 10px 2vw;
+    }
 }
