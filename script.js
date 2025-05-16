@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const inputNomeMesaManual = document.getElementById('nomeMesaManual');
     const btnSalvarMesaManual = document.getElementById('btnSalvarMesaManual');
     const btnCancelarMesaManual = document.getElementById('btnCancelarMesaManual');
+    const btnFormaPagamento = document.getElementById('btnFormaPagamento');
+    const modalPagamento = document.getElementById('modalPagamento');
+    const btnCancelarPagamento = document.getElementById('btnCancelarPagamento');
 
     // Agora cada mesa tem um nome/numero e seus pedidos
     let mesas = []; // Exemplo: [{nome: "1", pedidos: []}, {nome: "12", pedidos: []}, {nome: "24", pedidos: []}]
@@ -22,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let btnRestaurarPedido = null;
     let ultimaMesaRemovida = null;
     let btnRestaurarMesa = null;
+    let formaPagamentoSelecionada = '';
 
     function renderizarMesas() {
         listaMesas.innerHTML = '';
@@ -250,6 +254,26 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         }, 15000);
     }
+
+    // Forma de pagamento
+
+
+    btnFormaPagamento.addEventListener('click', () => {
+        modalPagamento.style.display = 'flex';
+    });
+
+    btnCancelarPagamento.addEventListener('click', () => {
+        modalPagamento.style.display = 'none';
+    });
+
+    // Ao clicar em uma opção de pagamento
+    document.querySelectorAll('.pag-opcao').forEach(btn => {
+        btn.addEventListener('click', function () {
+            formaPagamentoSelecionada = this.dataset.pag;
+            btnFormaPagamento.textContent = `Pagamento: ${formaPagamentoSelecionada}`;
+            modalPagamento.style.display = 'none';
+        });
+    });
 
     // Inicialização
     renderizarMesas();
