@@ -9,57 +9,106 @@
 </head>
 
 <body>
+    <!-- Cabeçalho -->
     <div class="headLine">
-        <h2 class="head1">Mesas</h2>
         <h1 class="head2">Central Carnes Cerro Azul</h1>
         <h2 class="head3">Logo</h2>
     </div>
+
     <div class="container">
+        <!-- Coluna de Mesas -->
         <div class="mesas">
             <section class="firstCollumn">
                 <h2 class="headmesa">Lista Mesas</h2>
+                <button class="adicionarMesaManual">Adicionar Mesa</button>
                 <div class="listamesas">
                     <ol class="listaordenadamesas contarMesa">
-                        <li>Mesa </li>
-                        <li>Mesa </li>
-                        <li>Mesa </li>
+                        <!-- Começa vazio -->
                     </ol>
                 </div>
                 <button class="opcoes">Opções</button>
+                <div class="botoesPedidos">
+                    <button class="add">Adicionar</button>
+                    <button class="rem">Remover</button>
+                    <button class="edit">Editar</button>
+                    <button class="fechar">&#10006;</button>
+                </div>
                 <p class="finalizarMesa">Finalizar mesa</p>
             </section>
         </div>
 
+        <!-- Coluna de Pedidos -->
         <div class="pedidosMesa secondCollumn">
             <section class="opçõesMesa">
                 <div class="listaPedidos">
-                    <button class="add">Adicionar</button>
-                    <button class="rem">Remover</button>
-                    <button class="edit">Editar</button>
                     <h2>Lista pedidos</h2>
                     <ol class="listaordenadamesas esquerda">
-                        <li>Espeto Carne(R$8.00)</li>
-                        <li>Espeto Frango(R$7.00)</li>
-                        <li>Heineken(R$12.00)</li>
+                        <!-- Os pedidos são preenchidos dinamicamente pelo JS -->
                     </ol>
                 </div>
             </section>
         </div>
 
+        <!-- Coluna de Impressão/Valores -->
         <div class="print">
             <section>
                 <div class="pag">
                     <h2>Valor Final</h2>
                     <ol class="listaordenadamesas valorProduto">
-                        <li>R$8.00</li>
-                        <li>R$7.00</li>
-                        <li>R$12.00</li>
+                        <!-- Valores preenchidos dinamicamente -->
                     </ol>
                     <h2 class="fpag">Forma Pagamento</h2>
                 </div>
             </section>
         </div>
     </div>
+
+    <!-- Modal para editar/excluir pedido -->
+    <div id="modalEditar" class="modal-editar">
+        <div class="modal-content">
+            <h3>Editar ou Excluir Pedido</h3>
+            <select id="selectPedido"></select>
+            <input type="text" id="novoPedido" placeholder="Novo pedido e valor">
+            <div class="modal-actions">
+                <button id="btnSalvarEdicao">Salvar</button>
+                <button id="btnExcluirPedido">Excluir</button>
+                <button id="btnCancelarEdicao">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal para adicionar pedido -->
+    <div id="modalAdicionar" class="modal-editar">
+        <div class="modal-content">
+            <h3>Adicionar Pedido</h3>
+            <input type="text" id="novoPedidoAdicionar" placeholder="Pedido e valor (ex: Espeto Queijo(R$9.00))">
+            <div class="modal-actions">
+                <button id="btnSalvarAdicionar">Adicionar</button>
+                <button id="btnCancelarAdicionar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="modalAdicionarMesa" class="modal-editar">
+        <div class="modal-content">
+            <h3>Adicionar Mesa</h3>
+            <input type="text" id="nomeMesaManual" placeholder="Nome da mesa">
+            <div class="modal-actions">
+                <button id="btnSalvarMesaManual">Adicionar</button>
+                <button id="btnCancelarMesaManual">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal para adicionar mesa manualmente (adicione antes do </body>) -->
+    <div id="modalAdicionarMesa" class="modal-editar" style="display:none;">
+        <div class="modal-content">
+            <h3>Adicionar Mesa</h3>
+            <input type="text" id="nomeMesaManual" placeholder="Número ou nome da mesa">
+            <div class="modal-actions">
+                <button id="btnSalvarMesaManual">Adicionar</button>
+                <button id="btnCancelarMesaManual">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
